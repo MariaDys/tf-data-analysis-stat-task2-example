@@ -9,6 +9,8 @@ chat_id = 734920047 # Ваш chat ID, не меняйте название пе�
 def solution(p: float, x: np.array) -> tuple:
     alpha = 1 - p
     n = len(x)
+    if n < 30:
+        n = 30
     s = np.sqrt(np.var(x, ddof=1))
     chi2 = np.power(x, 2).sum() / np.power(s, 2)
     left = np.sqrt((n-1) * np.power(s, 2) / chi2) * norm.ppf(alpha/2) 
